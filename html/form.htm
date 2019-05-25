@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shorten Your Url</title>
+</head>
+<body>
+  <form  id="postData">
+      <div>
+          <input type="text" name="" id="url" />
+      </div>
+      <input type="submit" value="SHORTEN IT" />
+  </form>
+  <p id="resData"></p>
+
+  <script>
+    const appendMsg = msg => {
+      document.getElementById('resData').innerHTML = msg;
+    };
+    const postData = event => {
+      event.preventDefault();
+      const url = document.getElementById('url').value;
+      const getUrl = window.location;
+      const baseUrl = getUrl.protocol + "//" + getUrl.host;
+      console.log(url, baseUrl);
+      fetch('/', {
+            method: 'POST',
+            body: { url },
+            headers: new Headers({'content-type': 'application/json'}),
+        })
+        .then((res) => res.json())
+        .then((data) => appendMsg(`\<a href="/${data.code}">${baseUrl}/${data.code}\</a>`))
+        .catch(err => {
+          console.error(err);
+          appendMsg(`unable to shorten ${url}`);
+        });
+    }
+    document.getElementById('postData').addEventListener('submit', postData);
+  </script>
+</body>
+</html>

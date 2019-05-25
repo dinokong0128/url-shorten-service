@@ -57,19 +57,17 @@ describe('Url Shortening', async () => {
 
   describe('POST /', () => {
     const testUrl = chance.url();
-    const testCode = shortid.generate();
     it('saves an url correctly with a shorten url return', () => {
       return request(server)
         .post('/')
         .send({
           url: testUrl,
-          code: testCode,
         })
         .expect(httpStatus.OK)
         .then((res) => {
           const { url, code } = res.body;
           expect(url).to.be.equal(testUrl);
-          expect(code).to.be.equal(code);
+          expect(code).to.be.a('string');
         });
     });
   });
