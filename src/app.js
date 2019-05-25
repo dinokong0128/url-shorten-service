@@ -1,16 +1,14 @@
 import express from 'express';
 import path from 'path';
-import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import indexRouter from './routes/index';
+import indexRouter from './routes';
 
 const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use('files', express.static(path.join(__dirname, '../files')));
+app.use('html', express.static(path.join(__dirname, '../html')));
 
 app.use('/', indexRouter);
 

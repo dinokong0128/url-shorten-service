@@ -11,7 +11,6 @@
     "docs": "apidoc -i src -o docs"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "dotenv": "^7.0.0",
     "express": "~4.16.0",
@@ -19,7 +18,8 @@
     "mongoose": "^5.5.5",
     "mongoose-seed": "^0.6.0",
     "morgan": "~1.9.0",
-    "restify-errors": "^7.0.0"
+    "restify-errors": "^7.0.0",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
