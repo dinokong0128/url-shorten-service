@@ -10,7 +10,7 @@ import isValidUrl from './utils/validations';
  * @param  {Function} next
  * @return {Promise}
  */
-const getCtrl = async (req, res, next) => {
+const redirectCtrl = async (req, res, next) => {
   try {
     const { code } = req.params;
     const url = await Url.findOne({ code });
@@ -46,6 +46,6 @@ const postCtrl = async (req, res, next) => {
 };
 
 export {
-  getCtrl,
+  redirectCtrl,
   postCtrl,
 };

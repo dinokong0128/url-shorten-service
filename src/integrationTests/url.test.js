@@ -59,7 +59,7 @@ describe('Url Shortening', async () => {
     const testUrl = chance.url();
     it('saves an url correctly with a shorten url return', () => {
       return request(server)
-        .post('/')
+        .post('/urls')
         .send({
           url: testUrl,
         })

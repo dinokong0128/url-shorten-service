@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-  getCtrl,
+  redirectCtrl,
   postCtrl,
 } from './controller';
 
@@ -8,10 +8,10 @@ const router = express.Router();
 
 router
   .route('/:code')
-  .get(getCtrl);
+  .get(redirectCtrl);
 
 router
-  .route('/')
+  .route('/urls')
   .post(postCtrl);
 
 export default router;

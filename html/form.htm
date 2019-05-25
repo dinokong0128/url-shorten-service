@@ -23,7 +23,7 @@
       const getUrl = window.location;
       const baseUrl = getUrl.protocol + "//" + getUrl.host;
       console.log(url, baseUrl);
-      fetch('/', {
+      fetch('/urls', {
             method: 'POST',
             body: { url },
             headers: new Headers({'content-type': 'application/json'}),
