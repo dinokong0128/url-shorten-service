@@ -1,0 +1,40 @@
+{
+  "name": "url-shorten-service",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "babel-node ./src/index.js",
+    "dev": "DEBUG=* nodemon --exec \"yarn start\"",
+    "lint": "eslint ./src/ --ignore-path .gitignore",
+    "test:integration": "NODE_ENV=test mocha --require babel-polyfill --require @babel/register src/integrationTests",
+    "seed": "babel-node ./seeds/testInit.js && rm -dR files && cp -R seeds/seederFiles files",
+    "docs": "apidoc -i src -o docs"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^7.0.0",
+    "express": "~4.16.0",
+    "http-status": "^1.3.2",
+    "mongoose": "^5.5.5",
+    "mongoose-seed": "^0.6.0",
+    "morgan": "~1.9.0",
+    "restify-errors": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "babel-polyfill": "^6.26.0",
+    "chai": "^4.2.0",
+    "chance": "^1.0.18",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.0",
+    "supertest": "^4.0.2"
+  }
+}
