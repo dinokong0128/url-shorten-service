@@ -25,7 +25,7 @@
       console.log(url, baseUrl);
       fetch('/urls', {
             method: 'POST',
-            body: { url },
+            body: JSON.stringify({ url }),
             headers: new Headers({'content-type': 'application/json'}),
         })
         .then((res) => res.json())
